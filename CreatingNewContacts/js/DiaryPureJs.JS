@@ -1,30 +1,32 @@
-class Contact{
-    constructor(name, phoneNumber){
-        this.name = name;
-        this.phoneNumber = phoneNumber;
+function CreateDiary() {
+    
+    class Contact{
+        constructor(name, phoneNumber){
+            this.name = name;
+            this.phoneNumber = phoneNumber;
+        }
     }
-}
-
-class Diary{
+    
+    class Diary{
     constructor(size = 10){
      this.contacts = [];
      this.size = size;   
     };
     //Creating a new contact
-        addContact(contact){
+    addContact(contact){
         if(this.contacts.length < this.size){
             this.contacts.push(contact);
         }else{
             alert('Se ha añadido la cantidad máxima de contactos.')
         }
     };
-
+    
     //Checking if new contact exist
     contactExist(contact){
         for (let i = 0; i < this.contacts.length; i++) {
             const contactName = this.contacts[i].name;
             if (contact.name === contactName) {
-               return true;
+                return true;
             }
         }
         return false;
@@ -37,19 +39,19 @@ class Diary{
             document.write(contactName+ ' '+ contactPhoneNumber + '<br>');
         };
     }
-
+    
     //Search a contact and returns the name with the phoneNumber
     searchContact(name){
         for (let i = 0; i < this.contacts.length; i++) {
             const contactName = this.contacts[i].name;
             const contactPhoneNumber = this.contacts[i].phoneNumber;
-           if(name === this.contacts[i].name){
-            document.write('El resultado de la búsqueda es: '+ contactName + ' y su número es: '+contactPhoneNumber);
-           }
+            if(name === this.contacts[i].name){
+                document.write('El resultado de la búsqueda es: '+ contactName + ' y su número es: '+contactPhoneNumber);
+            }
             
         }
     }
-
+    
     //Delete a contact
     deleteContact(contact){
         if(this.contactExist(contact)){
@@ -64,7 +66,7 @@ class Diary{
             alert('El contacto no existe en la agenda.');
         }
     }
-
+    
     //Consults if the Diary is full
     fullDiary(){
         if (this.contacts.length < this.size) {
@@ -96,3 +98,4 @@ myDiary.searchContact(contact2.name);
 myDiary.deleteContact(contact4);
 myDiary.fullDiary();
 myDiary.countSize();
+}
